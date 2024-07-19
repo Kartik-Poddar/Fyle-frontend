@@ -1,0 +1,96 @@
+/* Container for the entire example, ensuring it covers the full viewport */
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+}
+
+/* Sidenav styling */
+mat-sidenav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 220px; /* Width when sidenav is open */
+    transition: width 0.5s ease;
+    background: black;
+    text-decoration: none;
+    color: black; /* This may not be necessary if you set color on specific elements */
+}
+
+/* Styling for the content inside the sidenav */
+.sidenav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Fixed section at the top of the sidenav */
+.fixed-section {
+    background: #f0f0f0;
+    padding: 12px;
+    height: 40px;
+}
+
+/* Scrollable section within the sidenav */
+.scrollable-section {
+    overflow-y: auto;
+    flex: 1;
+    padding: 10px;
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+/* Styling for the content area */
+.mat-sidenav-content {
+    transition: margin-left 0.3s ease;
+    margin-left: 220px; /* Adjust this based on the open width */
+}
+
+/* Closed sidenav styling (if used) */
+.closed-sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 100vh;
+    z-index: 500;
+    background: black;
+}
+
+/* Container for example buttons */
+.example-button-container {
+    margin: auto;
+    padding: 0;
+    transform: scale(1.1);
+}
+
+/* Styling for sidenav icons */
+.sidenav_icons {
+    display: flex;
+    flex-direction: column;
+    transform: scale(1.32);
+    margin: 34px 10px 0 1px;
+    padding: 0;
+    background-color: black;
+}
+
+/* Height for list items */
+.list {
+    height: 63px;
+}
+
+/* Link styling */
+a {
+    text-decoration: none;
+    color: #f0f0f0;
+    background-color: transparent;
+}
+
+/* Link hover state */
+a:hover {
+    color: #a9a9a9;
+}

@@ -1,0 +1,60 @@
+<div>
+    <mat-sidenav-container class="example-container" *ngIf="shouldRun">
+
+        <mat-sidenav #sidenav mode="side" [(opened)]="opened" mode="side" class="custom-sidenav"
+            [class.closed]="!opened">
+            <div class="fixed-section"
+                style="margin-left: 60px;font-size: 20px;display: flex;align-items: center;font-weight: bold;">
+                Work It Out!
+            </div>
+            <div class="scrollable-section">
+                <mat-action-list>
+                    <li *ngFor="let item of menuItems" class="list">
+                        <a routerLink="/{{item.link}}"><button
+                                mat-list-item>{{ item.name
+                                }}</button></a>
+                    </li>
+                </mat-action-list>
+            </div>
+
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+    <div class="closed-sidenav">
+        <div class="fixed-section">
+
+            <div class="example-button-container">
+                <button mat-mini-fab color="black" aria-label="Toggle side navigation" (click)="toggleSidenav()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <!-- <p>
+            <button mat-button (click)="toggleSidenav()">sidenav.toggle()</button>
+          </p> -->
+        </div>
+        <div class="sidenav_icons">
+            <mat-action-list>
+                <li class="icon">
+                    <a routerLink="/home"><button mat-list-item><mat-icon aria-hidden="false"
+                                aria-label="Example home icon" fontIcon="home">
+                            </mat-icon></button></a>
+                    <a routerLink="/add-list"><button mat-list-item><mat-icon aria-hidden="false"
+                                aria-label="Example add icon" fontIcon="add">
+                            </mat-icon></button></a>
+                    <a routerLink="/workout-list"><button mat-list-item><mat-icon aria-hidden="false"
+                                aria-label="Example search icon" fontIcon="search">
+                            </mat-icon></button></a>
+                    <a routerLink="/workout-chart"><button mat-list-item><mat-icon aria-hidden="false"
+                                aria-label="Example home icon" fontIcon="insert_chart">
+                            </mat-icon></button></a>
+                </li>
+            </mat-action-list>
+
+        </div>
+
+    </div>
+</div>

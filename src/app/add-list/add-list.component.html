@@ -1,0 +1,41 @@
+<body>
+    <h1>Add Your Workout!</h1>
+    <div class="form-container">
+        <form [formGroup]="loginForm" (ngSubmit)="AddUser()">
+            <mat-form-field>
+                <mat-label>User Name</mat-label>
+                <input matInput formControlName="username" required />
+                <mat-error *ngIf="loginForm.invalid">{{ updateErrorMessage() }}</mat-error>
+            </mat-form-field>
+            <span style="color: white;margin-top: -45px;font-size: 14px;"
+                *ngIf="username && username.invalid && username.touched">{{errorMessage}}</span>
+
+            <mat-form-field>
+                <mat-label>Workout Type</mat-label>
+                <mat-select formControlName="workout_type" required>
+                    <mat-option value="running">Running</mat-option>
+                    <mat-option value="cycling">Cycling</mat-option>
+                    <mat-option value="swimming">Swimming</mat-option>
+                    <mat-option value="yoga">Yoga</mat-option>
+                    <mat-option value="plank">Plank</mat-option>
+                    <mat-option value="squats">Squats</mat-option>
+                    <mat-option value="crunches">Crunches</mat-option>
+                    <mat-option value="stretching">Stretching</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Workout Minutes</mat-label>
+                <input matInput formControlName="workout_mins" required />
+                <mat-error *ngIf="loginForm.invalid">{{ updateErrorMessage() }}</mat-error>
+            </mat-form-field>
+            <p style="color: white;margin-top: -45px;font-size: 14px"
+                *ngIf="workout_mins && workout_mins.invalid && workout_mins.touched">{{errorMessage}}<p>
+
+            <div class="example-button-row">
+                <button [disabled]="loginForm.invalid" mat-raised-button color="accent"
+                    [hidden]="loginForm.invalid">Add</button>
+            </div>
+        </form>
+    </div>
+</body>
