@@ -22,7 +22,6 @@ import {merge} from 'rxjs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginator,MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {Chart} from 'chart.js';
 
 
 @NgModule({

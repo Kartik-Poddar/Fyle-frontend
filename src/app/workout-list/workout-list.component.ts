@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class WorkoutListComponent implements AfterViewInit {
   displayedColumns: string[] = ['name', 'workout_type', 'no_of_workouts', 'total_workout_mins'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Data>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -34,7 +34,7 @@ export class WorkoutListComponent implements AfterViewInit {
   }
 
   applyFilter(filterValues: { name: string; workout_type: string }) {
-    this.dataSource.filterPredicate = (data: PeriodicElement, filter: string) => {
+    this.dataSource.filterPredicate = (data: Data, filter: string) => {
       const filterObject = JSON.parse(filter);
       return (data.name.toLowerCase().includes(filterObject.name.toLowerCase()) ||
               filterObject.name === '') &&
@@ -54,14 +54,14 @@ export class WorkoutListComponent implements AfterViewInit {
   }
 }
 
-export interface PeriodicElement {
+export interface Data {
   name: string;
   workout_type: string;
   no_of_workouts: number;
   total_workout_mins: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: Data[] = [
   { name: "Kartik Poddar", workout_type: "Cycling", no_of_workouts: 1, total_workout_mins: 30 },
   { name: 'John Doe', workout_type: "Running", no_of_workouts: 1, total_workout_mins: 30 },
   { name: 'John Doe', workout_type: "Swimming", no_of_workouts: 1, total_workout_mins: 60 },
